@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete phone</title>
+</head>
+<body>
+<h1>Delete phone</h1>
+<h2>Are you sure?</h2>
+<p>
+    <a href="/phones">Phones list</a>
+</p>
+<form th:action="@{/delete-phone}" th:object="${phone}" method="post">
+    <input th:type="hidden" name="id" th:field="*{id}">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td th:text="${phone.name}"></td>
+        </tr>
+        <tr>
+            <td>Price:</td>
+            <td th:text="${phone.price}"></td>
+        </tr>
+        <tr>
+            <td>Category:</td>
+            <td th:text="${phone.category.name}"></td>
+        </tr>
+        <tr>
+            <td>Purchase date:</td>
+            <td th:text="${phone.purchaseDate}"></td>
+        </tr>
+        <tr>
+            <td>Image:</td>
+            <td><img width="168px" height="168px" th:src="${phone.image}"></td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td th:text="${phone.description}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Delete phone"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
